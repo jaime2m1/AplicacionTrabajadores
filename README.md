@@ -1,13 +1,8 @@
 # AplicacionTrabajadores
 Aplicación generada con Angular para el control de los días de vacaciones de los trabajadores
 
+
 # Manual
-
-## Aplicación de Trabajadores
-
-## Elaborado por Jaime Merino
-
-
 ## Función:
 
 La aplicación de trabajadores tiene como objetivo controlar los
