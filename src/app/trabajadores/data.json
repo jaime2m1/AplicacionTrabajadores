@@ -1,0 +1,26 @@
+[
+    {
+        "id":"1",
+        "name":"Jose",
+        "surname":"Martín",
+        "dni":"12345678A",
+        "fechaContrato":"2020-10-10",
+        "mesesTrabajados":"1"
+    },
+    {
+        "id":"2",
+        "name":"María",
+        "surname":"Antonia",
+        "dni":"12345678B",
+        "fechaContrato":"2019-11-20",
+        "mesesTrabajados":"2"
+    },
+    {
+        "id":"3",
+        "name":"Pepe",
+        "surname":"Coronado",
+        "dni":"12345678C",
+        "fechaContrato":"2021-01-30",
+        "mesesTrabajados":"3"
+    }
+]

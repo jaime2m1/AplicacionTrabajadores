@@ -1,0 +1,58 @@
+<p class="title">Trabajadores</p>
+<div>
+    <p class="searchbar">Buscador <input class="search" type="text" name="search" [(ngModel)]="search"></p>
+</div>
+<div class="divtable" *ngIf="trabajadores!=null; else espera">
+    <div *ngIf="search==null||search==none">
+    <table class="table" border="1" >
+        <tr>
+            <td>Nombre</td><td>Apellido</td><td>DNI</td><td>Fecha de contrato</td><td>Días vacaciones</td><td colspan="2"><button (click)="clean()">Limpiar</button></td>
+        </tr>
+        <tr *ngFor="let trabajador of trabajadores">
+            <td>{{trabajador.name}}</td>
+            <td>{{trabajador.surname}}</td>
+            <td>{{trabajador.dni}}</td>
+            <td>{{trabajador.fechaContrato}}</td>
+            <td>{{trabajador.diasVacaciones}}</td>
+            <td><button (click)="setData(trabajador)">✔</button></td>
+            <td><button (click)="deleteTrabajador(trabajador)">X</button></td>
+        </tr>
+    </table>
+    </div>
+    <div>
+    <table class="table" border="1" *ngIf="search!=null&&search!=none">
+        <tr>
+            <td>Nombre</td><td>Apellido</td><td>DNI</td><td>Fecha de contrato</td><td>Días vacaciones</td>
+        </tr>
+            <tr *ngFor="let trabajador of trabajadores">
+                <td *ngIf="trabajador.name==search||startWith(trabajador.name, search)">{{trabajador.name}}</td>
+                <td *ngIf="trabajador.name==search||startWith(trabajador.name, search)">{{trabajador.surname}}</td>
+                <td *ngIf="trabajador.name==search||startWith(trabajador.name, search)">{{trabajador.dni}}</td>
+                <td *ngIf="trabajador.name==search||startWith(trabajador.name, search)">{{trabajador.fechaContrato}}</td>
+                <td *ngIf="trabajador.name==search||startWith(trabajador.name, search)">{{trabajador.diasVacaciones}}</td>
+                <td *ngIf="trabajador.name==search||startWith(trabajador.name, search)"><button (click)="setData(trabajador)">✔</button></td>
+                <td *ngIf="trabajador.name==search||startWith(trabajador.name, search)"><button (click)="deleteTrabajador(trabajador)">X</button></td>
+            </tr>
+    </table>
+    </div>
+</div>
+<div class="divform">
+    <div class="divformchild">
+<ng-template #espera>Esperando datos...</ng-template>
+<form class="formulario">
+    <input type="hidden" name="id" [(ngModel)]="id" value="{{id}}">
+    <p>Name <input type="text" name="name" [(ngModel)]="name" value="{{name}}"></p>
+    <p>Surname <input type="text" name="surname" [(ngModel)]="surname" value="{{surname}}"></p>
+    <p>DNI <input type="text" name="dni" [(ngModel)]="dni" value="{{dni}}"></p>
+    <p>Fecha Contrato <input type="date" name="fechaContrato" [(ngModel)]="fechaContrato" value="{{fechaContrato}}"></p>
+    <p *ngIf="selected">Días disponibles: {{diasVacaciones}}</p>
+    <p *ngIf="selected">Obtener días vacaciones <input type="number" name="restDiasVacaciones" [(ngModel)]="restDiasVacaciones" value="{{restDiasVacaciones}}"></p>
+    <input type="hidden" name="mesesTrabajados" value="0">
+    <button class="btn" *ngIf="add" (click)="addTrabajador(id, name, surname, dni, fechaContrato, mesesTrabajados)">Anadir Trabajador</button>
+    <div *ngIf="restDiasVacaciones!=null && diasVacaciones!=null">
+        <p *ngIf="selected && restDiasVacaciones >= diasVacaciones && restDiasVacaciones != diasVacaciones" class="alert">No se puede hacer esta modificación</p>
+        <button class="btn" *ngIf="selected && restDiasVacaciones <= diasVacaciones || restDiasVacaciones == diasVacaciones" (click)="modTrabajador(id, name, surname, dni, fechaContrato, restDiasVacaciones)">Modificar Trabajador</button>
+    </div>
+</form>
+    </div>
+</div>
