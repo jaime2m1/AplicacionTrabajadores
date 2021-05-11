@@ -53,8 +53,6 @@ nos mostrarán los trabajadores con ese nombre
 ```
 ## Demo
 
-```
-Puede probar la demo en http://www.jaime2m1.gq
-Vídeo explicativo disponible aquí
-```
+Puede probar la demo en (www.jaime2m1.gq)[https://www.jaime2m1.gq]
+Vídeo explicativo disponible (aquí)[https://youtu.be/Jb-ODHKNpfI]
 
